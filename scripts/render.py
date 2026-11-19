@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 USER = "ASHxOnAIR-MEH"
 DATA = ROOT / "data/contributions.json"
 CARDS = ROOT / "cards"
-BLUE = "#244cce"
+BLUE = "#e6b450"
 PROJECTS = [
     ("RINK-KSUM-", "RINK", "Discover research technology in Kerala"),
     ("IMA-Parippally-Webinar-Registration-Website", "IMA Parippally", "Webinar registration website"),
@@ -37,11 +37,11 @@ def refresh():
     DATA.write_text(json.dumps(counts, sort_keys=True, indent=2) + "\n")
 
 
-def label(x, y, value, size=20, family="Arial", color="#202322"):
+def label(x, y, value, size=20, family="Arial", color="#e8edf2"):
     return f'<text x="{x}" y="{y}" font-family="{family}" font-size="{size}" fill="{color}">{escape(str(value))}</text>'
 
 
-def card(name, width, height, body, delay=0, background="#f8f5ec"):
+def card(name, width, height, body, delay=0, background="#111820"):
     font = base64.b64encode((ROOT / "fonts/instrument.woff").read_bytes()).decode()
     motion = "" if os.getenv("STATIC") == "1" else f"""@media(prefers-reduced-motion:no-preference){{
     .entry{{animation:arrive .6s {delay}s backwards}} .mark{{animation:arrive .4s var(--delay) backwards}}
@@ -59,7 +59,7 @@ def render():
          label(36, 165, "Building websites for research discovery, events and creative portfolios.", 21))
     origin = days[0][0] - timedelta(days=(days[0][0].weekday() + 1) % 7)
     grid = label(30, 43, f"{total:,} contributions", 37, "Instrument")
-    palette = ["#e5e7e1", "#bbcafa", "#839ff1", "#496ee0", BLUE]
+    palette = ["#24313d", "#57442c", "#93632b", "#c98b34", BLUE]
     peak = max(n for _, n in days)
     for day, n in days:
         week, row = divmod((day - origin).days, 7)
@@ -77,13 +77,13 @@ def render():
     for i, (month, n) in enumerate(months.items()):
         x = 32 + i * 835 / len(months)
         h = 78 * n / max(1, max(months.values()))
-        fill = BLUE if n and n == max(months.values()) else "#9daabf"
+        fill = BLUE if n and n == max(months.values()) else "#9a443e"
         body += f'<rect class="mark" style="--delay:{.36+i*.025}s" x="{x}" y="{152-h}" width="32" height="{h}" fill="{fill}"/>' + label(x, 146-h, n, 13) + label(x, 174, date.fromisoformat(month+"-01").strftime("%b"), 14)
     stats = f"{sum(n>0 for _, n in days)} active days     /     Longest streak: {longest} days     /     Peak: {count} on {busiest}"
     card("months", 900, 224, body + label(30, 209, stats, 19), .3)
     profile = f"https://github.com/{USER}"
-    readme = [f'# Muhammed Ashik S', '', '![Muhammed Ashik S builds websites for research discovery, events and portfolios](cards/hero.svg)', '', f'![{total} GitHub contributions](cards/calendar.svg)', '', f'![Monthly activity. {stats}](cards/months.svg)', '']
-    tiles = [("Build", "Research tools", "#cfddff"), ("Connect", "Event websites", "#ffc6aa"), ("Explore", "Creative portfolios", "#f4df86")]
+    readme = [f'# Muhammed Ashik S', '', '![Muhammed Ashik S builds websites for research discovery, events and portfolios](assets/armored-hero.png)', '', f'![{total} GitHub contributions](cards/calendar.svg)', '', f'![Monthly activity. {stats}](cards/months.svg)', '']
+    tiles = [("Build", "Research tools", "#452625"), ("Connect", "Event websites", "#453822"), ("Explore", "Creative portfolios", "#163d49")]
     links = [profile+"/"+PROJECTS[0][0], profile+"/"+PROJECTS[1][0], profile+"/alan-varkala-portfolio"]
     for i, ((title, subtitle, bg), link) in enumerate(zip(tiles, links)):
         card(title.lower(), 290, 140, label(20, 65, title, 54, "Instrument") + label(22, 110, subtitle) + label(248, 38, "↗", 25), .6+i*.1, bg)

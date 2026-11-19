@@ -1,6 +1,6 @@
 # Muhammed Ashik S
 
-![Muhammed Ashik S builds websites for research discovery, events and portfolios](cards/hero.svg)
+![Muhammed Ashik S builds websites for research discovery, events and portfolios](assets/armored-hero.png)
 
 ![167 GitHub contributions](cards/calendar.svg)
 
