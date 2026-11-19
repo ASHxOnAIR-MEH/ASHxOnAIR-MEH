@@ -15,9 +15,10 @@ DATA = ROOT / "data/contributions.json"
 CARDS = ROOT / "cards"
 BLUE = "#e6b450"
 PROJECTS = [
+    ("BIO-AI", "BIO-AI", "Explore the BIO-AI project"),
     ("RINK-KSUM-", "RINK", "Discover research technology in Kerala"),
-    ("IMA-Parippally-Webinar-Registration-Website", "IMA Parippally", "Webinar registration website"),
-    ("MINNAL-TECHNOLOGY-LAB", "Minnal Technology Lab", "Technology lab website"),
+    ("GSMS-G-Gaiter-Service-Management-System-", "G-Gaiter", "Service management system"),
+    ("RINK-TECHNOLOGY-EXPLORER-", "RINK Technology", "Explore research technology"),
 ]
 
 
