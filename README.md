@@ -1,21 +1,24 @@
 # Muhammed Ashik S
 
-![Muhammed Ashik S builds websites for research discovery, events and portfolios](assets/armored-hero.png)
+I'm a mechanical engineering undergraduate at UKF College of Engineering and Technology in Kerala. I build ESP32 prototypes and the software that connects them to people. My work spans sensor integration, assistive devices, and research discovery.
 
-![173 GitHub contributions](cards/calendar.svg)
+## Selected work
 
-![Monthly activity. 47 active days     /     Longest streak: 4 days     /     Peak: 15 on 2026-06-17](cards/months.svg)
+| Project | What I worked on |
+| --- | --- |
+| [RINK Technology Research Portal](https://github.com/ASHxOnAIR-MEH/RINK-KSUM-) | During my Kerala Startup Mission internship, I helped build a searchable catalog of 400+ technologies from 20+ institutions using Next.js, TypeScript, and Gemini-assisted search. |
+| [BIO-AI Centre of Excellence](https://github.com/ASHxOnAIR-MEH/BIO-AI) | I worked on the centre's website and its Huddle Global 2026 stall kiosk software. |
+| ORALINK | I explored tongue control for an assistive wheelchair using an ESP32 and Bluetooth HID. |
+| Ambient Memory Pendant | I worked on embedded audio capture using an ESP32-S3, an I2S microphone, microSD storage, and Bluetooth file transfer. |
 
-<a href="https://github.com/ASHxOnAIR-MEH/BIO-AI"><img src="cards/build.svg" width="32.5%" alt="Build — Research tools"></a>
-<a href="https://github.com/ASHxOnAIR-MEH/RINK-KSUM-"><img src="cards/connect.svg" width="32.5%" alt="Connect — Event websites"></a>
-<a href="https://github.com/ASHxOnAIR-MEH/alan-varkala-portfolio"><img src="cards/explore.svg" width="32.5%" alt="Explore — Creative portfolios"></a>
+## Engineering background
 
-## Featured repositories
+At Minnal Innovations, I worked on 26 Arduino- and ESP-based electronics projects, integrating sensors and troubleshooting firmware. My mechanical design tools include SolidWorks and AutoCAD. I also lead STEM activities with IEDC NEST Kerala and run student workshops on AI and deep technology.
 
-[![BIO-AI — Explore the BIO-AI project](cards/project-0.svg)](https://github.com/ASHxOnAIR-MEH/BIO-AI)
+[Connect on LinkedIn](https://linkedin.com/in/connentashik)
 
-[![RINK — Discover research technology in Kerala](cards/project-1.svg)](https://github.com/ASHxOnAIR-MEH/RINK-KSUM-)
+## GitHub activity
 
-[![G-Gaiter — Service management system](cards/project-2.svg)](https://github.com/ASHxOnAIR-MEH/GSMS-G-Gaiter-Service-Management-System-)
+![Contribution calendar showing daily counts in shades of green](cards/calendar.svg)
 
-[![RINK Technology — Explore research technology](cards/project-3.svg)](https://github.com/ASHxOnAIR-MEH/RINK-TECHNOLOGY-EXPLORER-)
+Pale green marks dates with zero contributions. Brighter green marks active days. Counts include the automated Prime Atlas dataset commits.

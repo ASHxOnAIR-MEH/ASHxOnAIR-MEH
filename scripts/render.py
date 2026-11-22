@@ -55,45 +55,15 @@ def render():
     CARDS.mkdir(exist_ok=True)
     days = sorted((date.fromisoformat(d), n) for d, n in json.loads(DATA.read_text()).items())
     total = sum(n for _, n in days)
-    card("hero", 900, 198, label(36, 42, "@ASHxOnAIR-MEH", 18, color=BLUE) +
-         label(33, 121, "Muhammed Ashik S", 81, "Instrument") +
-         label(36, 165, "Building websites for research discovery, events and creative portfolios.", 21))
     origin = days[0][0] - timedelta(days=(days[0][0].weekday() + 1) % 7)
     grid = label(30, 43, f"{total:,} contributions", 37, "Instrument")
-    palette = ["#24313d", "#57442c", "#93632b", "#c98b34", BLUE]
+    palette = ["#cde5d4", "#84df98", "#61d47c", "#41c563", "#23ac4e"]
     peak = max(n for _, n in days)
     for day, n in days:
         week, row = divmod((day - origin).days, 7)
         color = palette[0 if not n else min(4, 1 + (4 * (n - 1) // max(1, peak)))]
         grid += f'<rect class="mark" style="--delay:{.12 + week*.009:.3f}s" x="{30+week*15.5}" y="{62+row*15}" width="12" height="12" rx="2" fill="{color}"><title>{day}: {n}</title></rect>'
     card("calendar", 900, 200, grid + label(30, 185, f"{days[0][0]}  /  {days[-1][0]}", 14), .1)
-    months = Counter()
-    streak = longest = 0
-    for day, n in days:
-        months[day.strftime("%Y-%m")] += n
-        streak = streak + 1 if n else 0
-        longest = max(longest, streak)
-    busiest, count = max(days, key=lambda item: item[1])
-    body = label(30, 43, "Activity by month", 37, "Instrument")
-    for i, (month, n) in enumerate(months.items()):
-        x = 32 + i * 835 / len(months)
-        h = 78 * n / max(1, max(months.values()))
-        fill = BLUE if n and n == max(months.values()) else "#9a443e"
-        body += f'<rect class="mark" style="--delay:{.36+i*.025}s" x="{x}" y="{152-h}" width="32" height="{h}" fill="{fill}"/>' + label(x, 146-h, n, 13) + label(x, 174, date.fromisoformat(month+"-01").strftime("%b"), 14)
-    stats = f"{sum(n>0 for _, n in days)} active days     /     Longest streak: {longest} days     /     Peak: {count} on {busiest}"
-    card("months", 900, 224, body + label(30, 209, stats, 19), .3)
-    profile = f"https://github.com/{USER}"
-    readme = [f'# Muhammed Ashik S', '', '![Muhammed Ashik S builds websites for research discovery, events and portfolios](assets/armored-hero.png)', '', f'![{total} GitHub contributions](cards/calendar.svg)', '', f'![Monthly activity. {stats}](cards/months.svg)', '']
-    tiles = [("Build", "Research tools", "#452625"), ("Connect", "Event websites", "#453822"), ("Explore", "Creative portfolios", "#163d49")]
-    links = [profile+"/"+PROJECTS[0][0], profile+"/"+PROJECTS[1][0], profile+"/alan-varkala-portfolio"]
-    for i, ((title, subtitle, bg), link) in enumerate(zip(tiles, links)):
-        card(title.lower(), 290, 140, label(20, 65, title, 54, "Instrument") + label(22, 110, subtitle) + label(248, 38, "↗", 25), .6+i*.1, bg)
-        readme.append(f'<a href="{link}"><img src="cards/{title.lower()}.svg" width="32.5%" alt="{title} — {subtitle}"></a>')
-    readme += ["", "## Featured repositories", ""]
-    for i, (slug, title, desc) in enumerate(PROJECTS):
-        card(f"project-{i}", 900, 94, label(30, 57, title, 39, "Instrument") + label(400, 54, desc, 20) + label(844, 54, "↗", 26, color=BLUE), .85+i*.08)
-        readme.extend([f'[![{title} — {desc}](cards/project-{i}.svg)]({profile}/{slug})', ''])
-    (ROOT / "README.md").write_text("\n".join(readme), encoding="utf-8")
 
 
 if __name__ == "__main__":
